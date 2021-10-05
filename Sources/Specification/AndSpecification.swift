@@ -1,0 +1,14 @@
+public struct AndSpecification<T, L: Specification, R: Specification>: Specification where T == L.T, T == R.T {
+  let lhs: L
+  let rhs: R
+
+  public func satisfied(by candidate: T) -> Bool {
+    lhs.satisfied(by: candidate) && rhs.satisfied(by: candidate)
+  }
+}
+
+extension Specification {
+  public func and<B: Specification>(_ other: B) -> AndSpecification<T, Self, B> {
+    AndSpecification(lhs: self, rhs: other)
+  }
+}
