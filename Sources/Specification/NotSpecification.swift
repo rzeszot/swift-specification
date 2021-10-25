@@ -1,13 +1,17 @@
 public struct NotSpecification<T, S: Specification>: Specification where S.T == T {
-  let spec: S
+  let specification: S
+
+  public init(_ specification: S) {
+    self.specification = specification
+  }
 
   public func satisfied(by candidate: T) -> Bool {
-    !spec.satisfied(by: candidate)
+    !specification.satisfied(by: candidate)
   }
 }
 
 extension Specification {
   public func not() -> NotSpecification<T, Self> {
-    NotSpecification(spec: self)
+    NotSpecification(self)
   }
 }

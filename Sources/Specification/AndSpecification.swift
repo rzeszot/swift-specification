@@ -2,6 +2,11 @@ public struct AndSpecification<T, L: Specification, R: Specification>: Specifica
   let lhs: L
   let rhs: R
 
+  public init(_ lhs: L, _ rhs: R) {
+    self.lhs = lhs
+    self.rhs = rhs
+  }
+
   public func satisfied(by candidate: T) -> Bool {
     lhs.satisfied(by: candidate) && rhs.satisfied(by: candidate)
   }
@@ -9,6 +14,6 @@ public struct AndSpecification<T, L: Specification, R: Specification>: Specifica
 
 extension Specification {
   public func and<B: Specification>(_ other: B) -> AndSpecification<T, Self, B> {
-    AndSpecification(lhs: self, rhs: other)
+    AndSpecification(self, other)
   }
 }

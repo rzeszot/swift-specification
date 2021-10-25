@@ -1,9 +1,10 @@
 import XCTest
 
 final class CombinedSpecificationsTests: XCTestCase {
-  let sut = GreaterThan(value: 30).and(LessThan(value: 50)).and(Equal(value: 40).not()).or(Equal(value: 10))
 
   func test_satisfied() {
+    let sut = GreaterThan(value: 30).and(LessThan(value: 50)).and(Equal(value: 40).not()).or(Equal(value: 10))
+
     XCTAssertTrue(sut.satisfied(by: 31))
     XCTAssertTrue(sut.satisfied(by: 49))
 
@@ -14,6 +15,8 @@ final class CombinedSpecificationsTests: XCTestCase {
   }
 
   func test_not_satisfied() {
+    let sut = GreaterThan(value: 30).and(LessThan(value: 50)).and(Equal(value: 40).not()).or(Equal(value: 10))
+
     XCTAssertFalse(sut.satisfied(by: 30))
     XCTAssertFalse(sut.satisfied(by: 50))
 
@@ -22,4 +25,5 @@ final class CombinedSpecificationsTests: XCTestCase {
     XCTAssertFalse(sut.satisfied(by: 9))
     XCTAssertFalse(sut.satisfied(by: 11))
   }
+
 }
