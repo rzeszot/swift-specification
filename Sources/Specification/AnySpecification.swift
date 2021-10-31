@@ -1,3 +1,5 @@
+// swiftlint:disable identifier_name
+
 public struct AnySpecification<T>: Specification {
   let satisfier: (T) -> Bool
   let _debugDescription: String?
