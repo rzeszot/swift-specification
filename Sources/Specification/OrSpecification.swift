@@ -15,6 +15,14 @@ public struct OrSpecification<T, L: Specification, R: Specification>: Specificat
 
 }
 
+extension OrSpecification: CustomDebugStringConvertible {
+
+  public var debugDescription: String {
+    "or(\(lhs), \(rhs))"
+  }
+
+}
+
 extension Specification {
 
   public func or<B: Specification>(_ other: B) -> OrSpecification<T, Self, B> {

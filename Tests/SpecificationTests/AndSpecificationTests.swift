@@ -24,4 +24,12 @@ final class AndSpecificationTests: XCTestCase {
     XCTAssertFalse(sut.satisfied(by: 30))
   }
 
+  // MARK: -
+
+  func test_debug_description() {
+    let sut = GreaterThan(value: 10).and(LessThan(value: 20))
+
+    XCTAssertEqual(sut.debugDescription, "and(greater(10), less(20))")
+  }
+
 }

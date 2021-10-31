@@ -7,3 +7,9 @@ struct Equal<T: Equatable>: Specification {
     candidate == value
   }
 }
+
+extension Equal: CustomDebugStringConvertible {
+  var debugDescription: String {
+    "equal(\(value))"
+  }
+}

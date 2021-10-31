@@ -7,3 +7,9 @@ struct GreaterThan<T: Comparable>: Specification {
     candidate > value
   }
 }
+
+extension GreaterThan: CustomDebugStringConvertible {
+  var debugDescription: String {
+    "greater(\(value))"
+  }
+}

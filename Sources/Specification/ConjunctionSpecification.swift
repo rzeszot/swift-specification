@@ -22,3 +22,11 @@ public struct ConjunctionSpecification<T, S: Specification>: Specification where
   }
 
 }
+
+extension ConjunctionSpecification: CustomDebugStringConvertible where S: CustomDebugStringConvertible {
+
+  public var debugDescription: String {
+    "conjunction(\(specifications.map { $0.debugDescription }.joined(separator: ", ")))"
+  }
+
+}

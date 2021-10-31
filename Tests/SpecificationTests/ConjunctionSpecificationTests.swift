@@ -14,4 +14,16 @@ final class ConjunctionSpecificationTests: XCTestCase {
     XCTAssertFalse(sut.satisfied(by: 12))
   }
 
+  // MARK: -
+
+  func test_debug_description() {
+    let sut = ConjunctionSpecification([
+      GreaterThan(value: 10).erasured(),
+      GreaterThan(value: 15).erasured(),
+      LessThan(value: 20).erasured()
+    ])
+
+    XCTAssertEqual(sut.debugDescription, "conjunction(greater(10), greater(15), less(20))")
+  }
+
 }

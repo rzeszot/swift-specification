@@ -26,4 +26,12 @@ final class CombinedSpecificationsTests: XCTestCase {
     XCTAssertFalse(sut.satisfied(by: 11))
   }
 
+  // MARK: -
+
+  func test_debug_description() {
+    let sut = GreaterThan(value: 30).and(LessThan(value: 50)).and(Equal(value: 40).not()).or(Equal(value: 10))
+
+    XCTAssertEqual(sut.debugDescription, "or(and(and(greater(30), less(50)), not(equal(40))), equal(10))")
+  }
+
 }

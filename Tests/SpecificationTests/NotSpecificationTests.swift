@@ -23,4 +23,12 @@ final class NotSpecificationTests: XCTestCase {
     XCTAssertFalse(sut.satisfied(by: 10))
   }
 
+  // MARK: -
+
+  func test_debug_description() {
+    let sut = GreaterThan(value: 5).not()
+
+    XCTAssertEqual(sut.debugDescription, "not(greater(5))")
+  }
+
 }

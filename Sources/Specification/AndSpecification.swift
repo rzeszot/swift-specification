@@ -15,6 +15,14 @@ public struct AndSpecification<T, L: Specification, R: Specification>: Specifica
 
 }
 
+extension AndSpecification: CustomDebugStringConvertible {
+
+  public var debugDescription: String {
+    "and(\(lhs), \(rhs))"
+  }
+
+}
+
 extension Specification {
 
   public func and<B: Specification>(_ other: B) -> AndSpecification<T, Self, B> {

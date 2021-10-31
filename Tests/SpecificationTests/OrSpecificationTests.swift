@@ -22,4 +22,12 @@ final class OrSpecificationTests: XCTestCase {
     XCTAssertFalse(sut.satisfied(by: 15))
   }
 
+  // MARK: -
+
+  func test_debug_description() {
+    let sut = GreaterThan(value: 20).or(LessThan(value: 10))
+
+    XCTAssertEqual(sut.debugDescription, "or(greater(20), less(10))")
+  }
+
 }

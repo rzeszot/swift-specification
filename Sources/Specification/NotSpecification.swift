@@ -13,6 +13,14 @@ public struct NotSpecification<T, S: Specification>: Specification where S.T == 
 
 }
 
+extension NotSpecification: CustomDebugStringConvertible {
+
+  public var debugDescription: String {
+    "not(\(specification))"
+  }
+
+}
+
 extension Specification {
 
   public func not() -> NotSpecification<T, Self> {

@@ -7,3 +7,9 @@ struct LessThan<T: Comparable>: Specification {
     candidate < value
   }
 }
+
+extension LessThan: CustomDebugStringConvertible {
+  var debugDescription: String {
+    "less(\(value))"
+  }
+}
