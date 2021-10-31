@@ -7,13 +7,18 @@ public struct AndSpecification<T, L: Specification, R: Specification>: Specifica
     self.rhs = rhs
   }
 
+  // MARK: - Specification
+
   public func satisfied(by candidate: T) -> Bool {
     lhs.satisfied(by: candidate) && rhs.satisfied(by: candidate)
   }
+
 }
 
 extension Specification {
+
   public func and<B: Specification>(_ other: B) -> AndSpecification<T, Self, B> {
     AndSpecification(self, other)
   }
+
 }

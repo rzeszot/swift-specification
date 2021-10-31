@@ -9,6 +9,8 @@ public struct ConjunctionSpecification<T, S: Specification>: Specification where
     self.specifications = specifications
   }
 
+  // MARK: - Specification
+
   public func satisfied(by candidate: T) -> Bool {
     for specification in specifications {
       if !specification.satisfied(by: candidate) {
@@ -18,4 +20,5 @@ public struct ConjunctionSpecification<T, S: Specification>: Specification where
 
     return true
   }
+
 }

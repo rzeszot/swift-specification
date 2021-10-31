@@ -5,17 +5,18 @@ public struct AnySpecification<T>: Specification {
     self.satisfier = specification.satisfied(by:)
   }
 
-  init(_ satisfier: @escaping (T) -> Bool) {
-    self.satisfier = satisfier
-  }
+  // MARK: - Specification
 
   public func satisfied(by candidate: T) -> Bool {
     satisfier(candidate)
   }
+
 }
 
 extension Specification {
+
   public func erasured() -> AnySpecification<T> {
     AnySpecification(self)
   }
+
 }
