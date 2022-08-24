@@ -23,3 +23,11 @@ public extension Specification {
         NotSpecification(self)
     }
 }
+
+extension NotSpecification: Equatable where S: Equatable {
+
+}
+
+extension NotSpecification: Hashable where S: Hashable {
+
+}

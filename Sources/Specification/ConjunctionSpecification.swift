@@ -27,3 +27,11 @@ extension ConjunctionSpecification: CustomDebugStringConvertible where S: Custom
         "conjunction(\(specifications.map { $0.debugDescription }.joined(separator: ", ")))"
     }
 }
+
+extension ConjunctionSpecification: Equatable where S: Equatable {
+
+}
+
+extension ConjunctionSpecification: Hashable where S: Hashable {
+
+}

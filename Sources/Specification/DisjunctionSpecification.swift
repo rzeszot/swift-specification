@@ -27,3 +27,11 @@ extension DisjunctionSpecification: CustomDebugStringConvertible where S: Custom
         "disjunction(\(specifications.map { $0.debugDescription }.joined(separator: ", ")))"
     }
 }
+
+extension DisjunctionSpecification: Equatable where S: Equatable {
+
+}
+
+extension DisjunctionSpecification: Hashable where S: Hashable {
+
+}

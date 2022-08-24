@@ -25,3 +25,11 @@ public extension Specification {
         OrSpecification(self, other)
     }
 }
+
+extension OrSpecification: Equatable where L: Equatable, R: Equatable {
+
+}
+
+extension OrSpecification: Hashable where L: Hashable, R: Hashable {
+
+}

@@ -8,6 +8,9 @@ struct Equal<T: Equatable>: Specification {
     }
 }
 
+extension Equal: Equatable where T: Equatable {}
+extension Equal: Hashable where T: Hashable {}
+
 extension Equal: CustomDebugStringConvertible {
     var debugDescription: String {
         "equal(\(value))"

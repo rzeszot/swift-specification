@@ -8,6 +8,9 @@ struct GreaterThan<T: Comparable>: Specification {
     }
 }
 
+extension GreaterThan: Equatable where T: Equatable {}
+extension GreaterThan: Hashable where T: Hashable {}
+
 extension GreaterThan: CustomDebugStringConvertible {
     var debugDescription: String {
         "greater(\(value))"

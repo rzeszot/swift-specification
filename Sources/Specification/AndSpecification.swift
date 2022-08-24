@@ -25,3 +25,11 @@ public extension Specification {
         AndSpecification(self, other)
     }
 }
+
+extension AndSpecification: Equatable where L: Equatable, R: Equatable {
+
+}
+
+extension AndSpecification: Hashable where L: Hashable, R: Hashable {
+
+}
