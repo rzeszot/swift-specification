@@ -1,30 +1,25 @@
 public struct NotSpecification<T, S: Specification>: Specification where S.T == T {
-  let specification: S
+    let specification: S
 
-  public init(_ specification: S) {
-    self.specification = specification
-  }
+    public init(_ specification: S) {
+        self.specification = specification
+    }
 
-  // MARK: - Specification
+    // MARK: - Specification
 
-  public func satisfied(by candidate: T) -> Bool {
-    !specification.satisfied(by: candidate)
-  }
-
+    public func satisfied(by candidate: T) -> Bool {
+        !specification.satisfied(by: candidate)
+    }
 }
 
 extension NotSpecification: CustomDebugStringConvertible {
-
-  public var debugDescription: String {
-    "not(\(specification))"
-  }
-
+    public var debugDescription: String {
+        "not(\(specification))"
+    }
 }
 
-extension Specification {
-
-  public func not() -> NotSpecification<T, Self> {
-    NotSpecification(self)
-  }
-
+public extension Specification {
+    func not() -> NotSpecification<T, Self> {
+        NotSpecification(self)
+    }
 }
