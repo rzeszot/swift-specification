@@ -4,9 +4,14 @@ public struct AnySpecification<T>: Specification {
     let satisfier: (T) -> Bool
     let _debugDescription: String?
 
-    init<U: Specification>(_ specification: U) where T == U.T {
+    public init<U: Specification>(_ specification: U) where T == U.T {
         satisfier = specification.satisfied(by:)
         _debugDescription = (specification as? CustomDebugStringConvertible)?.debugDescription
+    }
+
+    public init(satisfier: @escaping (T) -> Bool) {
+        self.satisfier = satisfier
+        self._debugDescription = nil
     }
 
     // MARK: - Specification
